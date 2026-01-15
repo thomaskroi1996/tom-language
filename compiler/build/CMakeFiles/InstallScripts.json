@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/thk/coding/tom/compiler/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

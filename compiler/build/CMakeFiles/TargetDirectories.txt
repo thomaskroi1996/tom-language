@@ -1,0 +1,3 @@
+/home/thk/coding/tom/compiler/build/CMakeFiles/tom_compiler.dir
+/home/thk/coding/tom/compiler/build/CMakeFiles/edit_cache.dir
+/home/thk/coding/tom/compiler/build/CMakeFiles/rebuild_cache.dir
