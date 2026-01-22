@@ -1,4 +1,6 @@
 #include "tokenizer.hpp"
+#include <cctype>
+#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,17 +10,12 @@ std::vector<Token> Tokenizer::tokenize(std::string str) {
 
   std::vector<Token> tokens;
 
-  for (int i = 0; i < str.length(); i++) {
-    char c = str.at(i);
-    if (std::isalpha(c)) {
-      buf.push_back(c);
-      i++;
-      while (std::isalnum(str.at(i))) {
-        buf.push_back(str.at(i));
-        i++;
+  while (peek().has_value()) {
+    if (std::isalpha(peek().value())) {
+      buf.push_back(consume());
+      while (std::isalpha(peek().value())) {
+        buf.push_back(consume());
       }
-      i--;
-
       if (buf == "return") {
         tokens.push_back({.type = TokenType::RETURN});
         buf.clear();
@@ -26,17 +23,17 @@ std::vector<Token> Tokenizer::tokenize(std::string str) {
         std::cout << "Token not recognised" << std::endl;
         exit(EXIT_FAILURE);
       }
-    } else if (std::isdigit(c)) {
-      while (std::isdigit(str.at(i))) {
-        buf.push_back(str.at(i));
-        i++;
+    } else if (std::isdigit(peek().value())) {
+      while (std::isdigit(peek().value())) {
+        buf.push_back(consume());
       }
-      i--;
       tokens.push_back({.type = TokenType::NUMERIC, .value = buf});
       buf.clear();
-    } else if (c == ';') {
+    } else if (peek().value() == ';') {
       tokens.push_back({.type = TokenType::SEMICOLON});
-    } else if (std::isspace(c)) {
+      consume();
+    } else if (std::isspace(peek().value())) {
+      consume();
       continue;
     } else {
       std::cout << "unknown character" << std::endl;
@@ -44,11 +41,13 @@ std::vector<Token> Tokenizer::tokenize(std::string str) {
     }
   }
 
+  m_index = 0;
+
   return tokens;
 }
 
 [[nodiscard]] std::optional<char> Tokenizer::peek(int ahead) const {
-  if (m_index + ahead >= m_src.length()) {
+  if (m_index + ahead > m_src.length()) {
     return {};
   } else {
     return m_src.at(m_index);

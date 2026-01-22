@@ -18,7 +18,7 @@ struct Token {
 
 class Tokenizer {
 public:
-  Tokenizer(std::string src) : m_src(std::move(src)) {};
+  explicit Tokenizer(std::string src);
 
   std::vector<Token> tokenize(std::string str);
 
@@ -26,7 +26,7 @@ private:
   [[nodiscard]] std::optional<char> peek(int ahead = 1) const;
   char consume();
   const std::string m_src;
-  int m_index;
+  size_t m_index;
 };
 
 #endif

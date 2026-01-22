@@ -3,7 +3,7 @@ rm -rf build
 
 # make build dir make build files
 mkdir build && cd build
-cmake ..
+cmake -DCMAKE_BUILD_TYPE=Debug ..
 
 # build compiler
 make

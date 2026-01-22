@@ -1,13 +1,13 @@
 [
 {
   "directory": "/home/thk/coding/tom/compiler/build",
-  "command": "/usr/bin/c++  -I/home/thk/coding/tom/compiler/include -std=gnu++23 -o CMakeFiles/tom_compiler.dir/src/main.cpp.o -c /home/thk/coding/tom/compiler/src/main.cpp",
+  "command": "/usr/bin/c++  -I/home/thk/coding/tom/compiler/include -g -std=gnu++23 -o CMakeFiles/tom_compiler.dir/src/main.cpp.o -c /home/thk/coding/tom/compiler/src/main.cpp",
   "file": "/home/thk/coding/tom/compiler/src/main.cpp",
   "output": "CMakeFiles/tom_compiler.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/thk/coding/tom/compiler/build",
-  "command": "/usr/bin/c++  -I/home/thk/coding/tom/compiler/include -std=gnu++23 -o CMakeFiles/tom_compiler.dir/src/tokenizer.cpp.o -c /home/thk/coding/tom/compiler/src/tokenizer.cpp",
+  "command": "/usr/bin/c++  -I/home/thk/coding/tom/compiler/include -g -std=gnu++23 -o CMakeFiles/tom_compiler.dir/src/tokenizer.cpp.o -c /home/thk/coding/tom/compiler/src/tokenizer.cpp",
   "file": "/home/thk/coding/tom/compiler/src/tokenizer.cpp",
   "output": "CMakeFiles/tom_compiler.dir/src/tokenizer.cpp.o"
 }
