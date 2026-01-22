@@ -1,63 +1,9 @@
 #include <fstream>
 #include <iostream>
-#include <optional>
 #include <sstream>
 #include <vector>
 
-enum class TokenType {
-  RETURN,
-  NUMERIC,
-  SEMICOLON,
-};
-
-struct Token {
-  TokenType type;
-  std::optional<std::string> value;
-};
-
-std::vector<Token> tokenize(std::string str) {
-  std::string buf;
-
-  std::vector<Token> tokens;
-
-  for (int i = 0; i < str.length(); i++) {
-    char c = str.at(i);
-    if (std::isalpha(c)) {
-      buf.push_back(c);
-      i++;
-      while (std::isalnum(str.at(i))) {
-        buf.push_back(str.at(i));
-        i++;
-      }
-      i--;
-
-      if (buf == "return") {
-        tokens.push_back({.type = TokenType::RETURN});
-        buf.clear();
-      } else {
-        std::cout << "Token not recognised" << std::endl;
-        exit(EXIT_FAILURE);
-      }
-    } else if (std::isdigit(c)) {
-      while (std::isdigit(str.at(i))) {
-        buf.push_back(str.at(i));
-        i++;
-      }
-      i--;
-      tokens.push_back({.type = TokenType::NUMERIC, .value = buf});
-      buf.clear();
-    } else if (c == ';') {
-      tokens.push_back({.type = TokenType::SEMICOLON});
-    } else if (std::isspace(c)) {
-      continue;
-    } else {
-      std::cout << "unknown character" << std::endl;
-      exit(EXIT_FAILURE);
-    }
-  }
-
-  return tokens;
-}
+#include "tokenizer.hpp"
 
 std::string tokens_to_asm(const std::vector<Token> &tokens) {
   std::stringstream asm_;
@@ -96,7 +42,8 @@ int main(int argc, char *argv[]) {
 
   std::cout << contents << std::endl;
 
-  std::vector<Token> t = tokenize(contents);
+  Tokenizer tokenizer = Tokenizer(contents);
+  std::vector<Token> t = tokenizer.tokenize(contents);
   {
     std::fstream output("out.asm", std::ios::out);
     output << tokens_to_asm(t);

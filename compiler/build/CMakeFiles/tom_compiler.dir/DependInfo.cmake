@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/thk/coding/tom/compiler/src/main.cpp" "CMakeFiles/tom_compiler.dir/src/main.cpp.o" "gcc" "CMakeFiles/tom_compiler.dir/src/main.cpp.o.d"
+  "/home/thk/coding/tom/compiler/src/tokenizer.cpp" "CMakeFiles/tom_compiler.dir/src/tokenizer.cpp.o" "gcc" "CMakeFiles/tom_compiler.dir/src/tokenizer.cpp.o.d"
   "" "tom_compiler" "gcc" "CMakeFiles/tom_compiler.dir/link.d"
   )
 

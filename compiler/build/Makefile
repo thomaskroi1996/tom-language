@@ -92,13 +92,6 @@ all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/thk/coding/tom/compiler/build/CMakeFiles 0
 .PHONY : all
 
-# The main codegen target
-codegen: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thk/coding/tom/compiler/build/CMakeFiles /home/thk/coding/tom/compiler/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 codegen
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/thk/coding/tom/compiler/build/CMakeFiles 0
-.PHONY : codegen
-
 # The main clean target
 clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
@@ -160,19 +153,45 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tom_compiler.dir/build.make CMakeFiles/tom_compiler.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/tokenizer.o: src/tokenizer.cpp.o
+.PHONY : src/tokenizer.o
+
+# target to build an object file
+src/tokenizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tom_compiler.dir/build.make CMakeFiles/tom_compiler.dir/src/tokenizer.cpp.o
+.PHONY : src/tokenizer.cpp.o
+
+src/tokenizer.i: src/tokenizer.cpp.i
+.PHONY : src/tokenizer.i
+
+# target to preprocess a source file
+src/tokenizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tom_compiler.dir/build.make CMakeFiles/tom_compiler.dir/src/tokenizer.cpp.i
+.PHONY : src/tokenizer.cpp.i
+
+src/tokenizer.s: src/tokenizer.cpp.s
+.PHONY : src/tokenizer.s
+
+# target to generate assembly for a file
+src/tokenizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/tom_compiler.dir/build.make CMakeFiles/tom_compiler.dir/src/tokenizer.cpp.s
+.PHONY : src/tokenizer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... codegen"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... tom_compiler"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/tokenizer.o"
+	@echo "... src/tokenizer.i"
+	@echo "... src/tokenizer.s"
 .PHONY : help
 
 

@@ -5,7 +5,7 @@ rm -rf build
 mkdir build && cd build
 cmake ..
 
-# build compiler 
+# build compiler
 make
 
 # compile with our compiler
@@ -17,7 +17,7 @@ nasm -felf64 out.asm
 # link to produce executable
 ld out.o
 
-# run output (not sure yet why it is called that)
+# run output
 ./a.out
 
 # echo last executed syscall

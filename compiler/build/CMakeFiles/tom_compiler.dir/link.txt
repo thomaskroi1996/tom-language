@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/tom_compiler.dir/link.d CMakeFiles/tom_compiler.dir/src/main.cpp.o -o tom_compiler
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/tom_compiler.dir/link.d CMakeFiles/tom_compiler.dir/src/main.cpp.o CMakeFiles/tom_compiler.dir/src/tokenizer.cpp.o -o tom_compiler
